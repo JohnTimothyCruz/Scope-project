@@ -17,16 +17,15 @@ const recVolume = (height) => {
   let counter = 0;
   let volume = height;
 
-    return function volumeCalc(side) {
-      if (counter < 3) {
-        counter++;
-        console.log("---" + counter)
-        volume *= side;
-        return volume;
-      } else {
-        return volume;
-      }
+  return function volumeCalc(side) {
+    if (counter < 2) {
+      counter++;
+      volume *= side;
+      return volumeCalc;
+    } else {
+      return volume;
     }
+  }
 }
 
 let vol = recVolume(1);
