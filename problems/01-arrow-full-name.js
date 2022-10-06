@@ -14,7 +14,20 @@ arrowGetFullName(p2); // => 'Charlie Brown'
 
 ***********************************************************************/
 
-// Your code here
+const arrowGetFullName = (obj) => {
+  let fullName = [];
+
+  for (let key in obj) {
+    if (key.endsWith("Name")) {
+      fullName.push(obj[key])
+    }
+  }
+
+  return fullName.join(" ");
+
+}
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
