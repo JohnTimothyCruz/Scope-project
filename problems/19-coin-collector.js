@@ -25,7 +25,26 @@ Example 3:
 
 ***********************************************************************/
 
-// Your code here
+const coinCollector = (numCoins) => {
+  let times = numCoins;
+  let coins = [];
+
+  return function collector(int) {
+    if (times > 1) {
+      times--;
+      coins.push(int);
+      return collector;
+    } else {
+      coins.push(int);
+      return coins;
+    }
+  }
+}
+
+let threeCoins = coinCollector(3); // returns a function
+threeCoins(25); // returns a function
+threeCoins(5); // returns a function
+console.log(threeCoins(10)); // prints [ 25, 5, 10 ]
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
