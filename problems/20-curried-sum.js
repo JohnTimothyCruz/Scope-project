@@ -43,21 +43,45 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   be useful
 ***********************************************************************/
 
+// const curriedSum = (numsToSum) => {
+//   let numbers = [];
+//   let counter = numsToSum;
+//   let sum = 0;
+
+//   return function _curriedSum (numArgs) {
+//     if (counter > 1) {
+//       numbers.push(numArgs);
+//       counter--;
+//       return _curriedSum;
+//     } else {
+//       numbers.forEach((num) => {
+//         sum += num;
+//         return sum;
+//       });
+//     }
+//   }
+// }
+
 const curriedSum = (numsToSum) => {
+  if (numsToSum <= 0) {
+    return null;
+  }
+  
   let numbers = [];
   let counter = numsToSum;
   let sum = 0;
 
-  return function _curriedSum (numArgs) {
+  return function _curriedSum(numArgs) {
     if (counter > 1) {
       numbers.push(numArgs);
       counter--;
       return _curriedSum;
     } else {
+      numbers.push(numArgs);
       numbers.forEach((num) => {
         sum += num;
-        return sum;
       });
+      return sum;
     }
   }
 }
