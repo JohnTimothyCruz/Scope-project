@@ -43,7 +43,30 @@ AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
   be useful
 ***********************************************************************/
 
-// Your code here
+const curriedSum = (numsToSum) => {
+  let numbers = [];
+  let counter = numsToSum;
+  let sum = 0;
+
+  return function _curriedSum (numArgs) {
+    if (counter > 1) {
+      numbers.push(numArgs);
+      counter--;
+      return _curriedSum;
+    } else {
+      numbers.forEach((num) => {
+        sum += num;
+        return sum;
+      });
+    }
+  }
+}
+
+const sum = curriedSum(4); // returns a function
+console.log(sum(5)) // returns a function
+console.log(sum(20)) // returns a function
+console.log(sum(30)) // returns a function
+console.log(sum(20)); // => returns 75
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
