@@ -13,7 +13,28 @@ function returned by recVolume should continue to return the original volume.
 
 ***********************************************************************/
 
-// Your code here
+const recVolume = (height) => {
+  let counter = 0;
+  let volume = height;
+
+    return function volumeCalc(side) {
+      if (counter < 3) {
+        counter++;
+        console.log("---" + counter)
+        volume *= side;
+        return volume;
+      } else {
+        return volume;
+      }
+    }
+}
+
+let vol = recVolume(1);
+vol(2);
+console.log(vol(3));
+console.log(vol(3));
+console.log(vol(3));
+console.log(vol(3));
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
