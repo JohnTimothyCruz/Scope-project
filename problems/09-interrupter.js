@@ -16,7 +16,22 @@ console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 
 ***********************************************************************/
 
-// Your code here
+const interrupter = (interruptingWord) => {
+  return function interupted (string) {
+    let words = string.split(" ");
+    let newWords = [];
+    for (let i = 0; i < words.length - 1; i++) {
+      let word = words[i];
+      newWords.push(word);
+      newWords.push(interruptingWord);
+    }
+    newWords.push(words[words.length - 1]);
+    return newWords.join(" ");
+  }
+}
+
+let rudePerson2 = interrupter("yo"); // => returns a function
+console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
